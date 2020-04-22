@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
-:root {
-    --primary-color-1: #424874;
-    --primary-color-2: #a6b1e1;
-    --primary-color-3: #dcd6f7;
-}
-
-.p-color-1 {
-    background-color: var(--primary-color-1) !important;
-}
-
-.p-color-2 {
-    background-color: var(--primary-color-2) !important;
-}
-
-.p-color-3 {
-    background-color: var(--primary-color-3) !important;
-}
-
 html, body {
     font-family: 'Rubik', sans-serif;
 }
