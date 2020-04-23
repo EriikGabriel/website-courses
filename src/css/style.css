@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
 .bg-primary-2 {
-    background-color: #479ffd !important;
+    background-color: #0058b6 !important;
 }
 
 .color-primary-2 {
-    color: #479ffd !important;
+    color: #00438b !important;
 }
 
 .input-none-out:hover, .input-none-out {
     background-color: white !important;
     box-shadow: none !important;
     border: none !important;
+}
+
+.link-media {
+    cursor: pointer;
+    margin: 10px !important;
 }
 
 html, body {
