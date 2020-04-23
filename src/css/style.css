@@ -1,7 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
-@media screen and (max-width: 1022px) {
-    
+.bg-primary-2 {
+    background-color: #479ffd !important;
+}
+
+.color-primary-2 {
+    color: #479ffd !important;
+}
+
+.input-none-out:hover, .input-none-out {
+    background-color: white !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 html, body {
