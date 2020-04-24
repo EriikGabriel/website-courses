@@ -19,6 +19,14 @@
     margin: 10px !important;
 }
 
+.courses-link {
+    cursor: pointer !important;
+}
+
+.courses-link:active {
+    color: white !important;
+}
+
 html, body {
     font-family: 'Rubik', sans-serif;
 }
