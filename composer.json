@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    },
+    "require": {
+        "pagarme/pagarme-php": "^4.0"
+    }
+}

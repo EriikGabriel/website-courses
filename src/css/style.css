@@ -30,3 +30,34 @@
 html, body {
     font-family: 'Rubik', sans-serif;
 }
+
+#btn-warning {
+    text-align: center;
+    width: 200px; 
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 767px) {
+    .signin-buy {
+        border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .signup-buy {
+        border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    #btn-warning {
+        width: 90px;
+        font-size: 15px;
+    }
+
+    #message-warning {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+

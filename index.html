@@ -6,6 +6,7 @@
     <title>Game Hype School</title>
     <link rel="stylesheet" href="src/css/bootstrap.css">
     <link rel="stylesheet" href="src/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="src/libs/iziToast/css/iziToast.min.css">
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
@@ -86,7 +87,7 @@
     </div>
 
     <div class="container-fluid mt-4">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 course-cards">
         <div class="col mb-4">
           <div class="card">
             <div class="card-body text-center">
@@ -133,7 +134,7 @@
     <div class="container-fluid bg-primary mt-4 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <div class="col-12">
-          <img src="src/images/game-controller.svg" width="100" height="100">
+          <img src="src/images/game-controller.svg" width="100" height="100" id="game-controller">
         </div>
       </div>
       <div class="row text-white">
@@ -168,13 +169,83 @@
     </footer>
   </div>
 
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <nav class="nav nav-pills flex-row">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item mt-3 mr-3">
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill active d-md-block d-none" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Identificação</a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-id-card-alt fa-lg"></i></a>
+              </li>
+              <li class="nav-item mt-3 mr-3">
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-block d-none" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Pagamento</a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-money-check-alt fa-lg"></i></a>
+              </li>
+              <li class="nav-item mt-3">
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-block d-none" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Finalização</a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-check-double fa-lg"></i></a>
+              </li>
+            </ul>
+          </nav>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+
+        </div>
+        <div class="modal-body text-center tab-pane fade show active tab-content" id="pills-content">   
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="row">
+              <div class="col-md-6 signup-buy">
+                <form method="post" id="form-signup-buy" class="d-flex flex-column justify-content-center align-items-center">
+                  <h6 class="h6 mb-3"><b>Quero me cadastrar</b></h6>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="name-input-signup" placeholder="Digite um nome" autocomplete="off" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="password-input-signup" minlength="8" maxlength="20" placeholder="Digite uma senha" autocomplete="off" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-3 col-md-10 col-5">Cadastrar</button>
+                </form>
+              </div>
+  
+              <div class="col-md-6 text-center signin-buy">
+                <form method="post" id="form-signin-buy" class="d-flex flex-column justify-content-center align-items-center">
+                  <h6 class="h6 mt-md-0 mt-3 mb-3"><b>Já tenho uma conta</b></h6>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="name-input-signin" placeholder="Digite um nome" autocomplete="off" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="password-input-signin" minlength="8" maxlength="20" placeholder="Digite uma senha" autocomplete="off" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-3 col-md-10 col-7 col-sm-6">Entrar na conta</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">2</div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="src/js/jquery-3.4.1.min.js"></script>
   <script src="src/js/bootstrap.js"></script>
-  <script src="src/libs/iziToast/js/iziToast.js"></script>
+  <script src="src/libs/iziToast/js/iziToast.min.js"></script>
   <script src="src/libs/basicScroll/basic-scroll.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="src/courses/controller/course-view.js"></script>
-  
 </body>
 </html>

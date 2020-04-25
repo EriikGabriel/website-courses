@@ -22,4 +22,12 @@ $(document).ready(function () {
         $("#content").empty()
         $("#content").load('src/courses/view/modeling.html')       
     })
+
+    $("#btn-ready").click(function() {
+        window.scroll({
+            top: document.querySelector('.course-cards').offsetTop - 120,
+            left: 0,
+            behavior: 'smooth'
+         });
+    })
 })
