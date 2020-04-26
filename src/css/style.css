@@ -37,6 +37,16 @@ html, body {
     font-size: 18px;
 }
 
+.cc-icon {
+    transform: scale(1);
+    transition: all 1s;
+}
+
+.icon-scale {
+    transform: scale(1.3);
+    transition: all 1s;
+}
+
 @media only screen and (max-width: 767px) {
     .signin-buy {
         border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -60,4 +70,3 @@ html, body {
         text-align: center;
     }
 }
-

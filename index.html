@@ -172,39 +172,36 @@
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     Launch demo modal
   </button>
-  
-  <!-- Modal -->
+
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
           <nav class="nav nav-pills flex-row">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mb-3" id="steps" role="tablist">
               <li class="nav-item mt-3 mr-3">
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill active d-md-block d-none" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Identificação</a>
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-id-card-alt fa-lg"></i></a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill active d-md-block d-none" data-toggle="pill" href="#identification-step" role="tab" aria-selected="true">Identificação</a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" data-toggle="pill" href="#identification-step" role="tab" aria-selected="false"><i class="fas fa-id-card-alt fa-lg"></i></a>
               </li>
               <li class="nav-item mt-3 mr-3">
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-block d-none" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Pagamento</a>
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-money-check-alt fa-lg"></i></a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill  d-md-block d-none" data-toggle="pill" href="#payment-step" role="tab" aria-selected="false">Pagamento</a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill  d-md-none d-block" data-toggle="pill" href="#payment-step" role="tab" aria-selected="false"><i class="fas fa-money-check-alt fa-lg"></i></a>
               </li>
               <li class="nav-item mt-3">
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-block d-none" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Finalização</a>
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-check-double fa-lg"></i></a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-block d-none" data-toggle="pill" href="#finalization-step" role="tab" aria-selected="false">Finalização</a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" data-toggle="pill" href="#finalization-step" role="tab" aria-selected="false"><i class="fas fa-check-double fa-lg"></i></a>
               </li>
             </ul>
           </nav>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          
-
         </div>
-        <div class="modal-body text-center tab-pane fade show active tab-content" id="pills-content">   
-          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="modal-body text-center tab-pane fade show active tab-content">   
+          <div class="tab-pane fade show active" id="identification-step" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="row">
               <div class="col-md-6 signup-buy">
-                <form method="post" id="form-signup-buy" class="d-flex flex-column justify-content-center align-items-center">
+                <form id="form-signup-buy" class="d-flex flex-column justify-content-center align-items-center">
                   <h6 class="h6 mb-3"><b>Quero me cadastrar</b></h6>
                   <div class="form-group">
                     <input type="text" class="form-control" id="name-input-signup" placeholder="Digite um nome" autocomplete="off" required>
@@ -215,9 +212,8 @@
                   <button type="submit" class="btn btn-primary mb-3 col-md-10 col-5">Cadastrar</button>
                 </form>
               </div>
-  
               <div class="col-md-6 text-center signin-buy">
-                <form method="post" id="form-signin-buy" class="d-flex flex-column justify-content-center align-items-center">
+                <form id="form-signin-buy" class="d-flex flex-column justify-content-center align-items-center">
                   <h6 class="h6 mt-md-0 mt-3 mb-3"><b>Já tenho uma conta</b></h6>
                   <div class="form-group">
                     <input type="text" class="form-control" id="name-input-signin" placeholder="Digite um nome" autocomplete="off" required>
@@ -230,8 +226,77 @@
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">2</div>
-          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
+          <div class="tab-pane fade" id="payment-step" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <nav class="nav nav-pills flex-row d-flex justify-content-around">
+              <ul class="nav nav-pills mb-3" id="payment-method" role="tablist">
+                <li class="nav-item mr-3">
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#credit-card" role="tab" aria-selected="false"><i class="far fa-credit-card fa-lg" aria-hidden="true"></i></a>
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link active d-md-block d-none" id="pills-home-tab" data-toggle="pill" href="#credit-card" role="tab"  aria-selected="true"><i class="far fa-credit-card fa-lg" aria-hidden="true"></i> Cartão de Crédito</a>
+                </li>
+                <li class="nav-item mr-3">
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#payment-slip" role="tab" aria-selected="false"><i class="fas fa-receipt fa-lg"></i></a>
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-block d-none" id="pills-profile-tab" data-toggle="pill" href="#payment-slip" role="tab" aria-selected="false"><i class="fas fa-receipt fa-lg"></i> Boleto</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#transaction" role="tab" aria-selected="false"><i class="fas fa-hand-holding-usd fa-lg"></i></a>
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-block d-none" id="pills-contact-tab" data-toggle="pill" href="#transaction" role="tab" aria-selected="false"><i class="fas fa-hand-holding-usd fa-lg"></i> Transação</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="modal-body text-center tab-pane fade show active tab-content">
+              <div class="tab-pane fade show active" id="credit-card" role="tabpanel">
+                <form method="post" id="form-credit-card">
+                  <div class="form-group">
+                    <div class="row d-flex justify-content-center">
+                      <input type="text" id="input-credit-number" class="form-control col-7 col-md-5" placeholder="Número do cartão" minlength="19" maxlength="19" autocomplete="off" required>
+                      <input type="text" class="form-control col-md-3 col-7 ml-md-3 mt-2 mt-md-0" id="input-cvv" placeholder="CVV" minlength="3" maxlength="3" autocomplete="off" required>
+                    <div class="input-group-append d-md-flex d-none">
+                      <span class="input-group-text" data-toggle="tooltip" data-placement="right" title="Valor de 3 dígitos na parte de trás do cartão. Ex: 012"><b>?</b></span>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row d-flex justify-content-center">
+                      <input type="text" id="input-titular" class="form-control col-7 col-md-5" placeholder="Titular do cartão" autocomplete="off" required>
+                      <input type="text" class="form-control col-md-3 col-7 ml-md-3 mt-2 mt-md-0" id="input-expire-date" placeholder="MM/AA" minlength="5" maxlength="5" autocomplete="off" required>
+                    <div class="input-group-append d-md-flex d-none">
+                      <span class="input-group-text" data-toggle="tooltip" data-placement="right" title="Data de expiração do cartão"><b>?</b></span>
+                    </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary col-md-6 col-sm-7 col-8 mt-1">Confirmar</button>
+                </form>
+                <div class="row justify-content-around mt-5">
+                  <i class="fab cc-icon fa-cc-mastercard border-0 fa-2x" aria-hidden="true"></i>
+                  <i class="fab cc-icon fa-cc-visa border-0 fa-2x" aria-hidden="true"></i>
+                  <i class="fab cc-icon fa-cc-amex border-0 fa-2x" aria-hidden="true"></i>
+                  <i class="fab cc-icon fa-cc-diners-club border-0 fa-2x" aria-hidden="true"></i>
+                  <i class="fab cc-icon fa-cc-jcb border-0 fa-2x"></i>
+                  <i class="fab cc-icon fa-cc-discover border-0 fa-2x"></i>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="payment-slip" role="tabpanel">
+                <form method="post" id="form-payment-slip">
+                  <div class="form-group d-flex justify-content-center">
+                    <input type="text" id="name-customer-input" class="form-control col-md-9 col-7" placeholder="Digite seu nome">
+                  </div>
+                  <div class="form-group form-inline d-flex justify-content-center">
+                    <input type="email" class="form-control col-md-5 col-7" id="email-customer-input" placeholder="Digite seu email">
+                    <input type="text" id="tel-customer-input" class="form-control col-md-4 col-7 ml-md-1 mt-2 mt-md-0" placeholder="Telefone">
+                  </div>
+                  <div class="form-group form-inline d-flex justify-content-center">
+                    <input type="text" id="cpf-customer-input" class="form-control col-md-5 col-7" placeholder="Digite seu CPF">
+                    <input type="text" id="country-customer-input" class="form-control col-md-4 col-7 ml-md-1 mt-2 mt-md-0" placeholder="País">
+                  </div>
+                  <button type="submit" class="btn btn-primary col-md-6 col-sm-7 col-8 mt-1">Confirmar</button>
+                </form>
+              </div>
+              <div class="tab-pane fade show" id="transaction" role="tabpanel">
+                Pagamento 3
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="finalization-step" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar compra</button>
@@ -243,8 +308,9 @@
 
   <script src="src/js/jquery-3.4.1.min.js"></script>
   <script src="src/js/bootstrap.js"></script>
+  <script src="src/js/bootstrap.bundle.min.js"></script>
   <script src="src/libs/iziToast/js/iziToast.min.js"></script>
-  <script src="src/libs/basicScroll/basic-scroll.js"></script>
+  <script src="src/libs/cleave/cleave.min.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="src/courses/controller/course-view.js"></script>
 </body>
