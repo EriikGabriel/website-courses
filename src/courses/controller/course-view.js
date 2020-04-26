@@ -42,6 +42,17 @@ $(document).ready(function () {
         $('#steps li:nth-child(2) a').removeClass('disabled')
     })
 
+    function OnlyNumberInput(input_element) {
+        $(input_element).keypress(function (e) {
+          if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+              return false;
+          }
+        });
+    }
+
+    OnlyNumberInput('#cpf-customer-input')
+    OnlyNumberInput('#input-cvv')
+
     new Cleave('#input-credit-number', {
         creditCard: true,
         onCreditCardTypeChanged: function (type) {
@@ -100,9 +111,34 @@ $(document).ready(function () {
     new Cleave('#input-expire-date', {
         date: true,
         datePattern: ['m', 'y']
-    });
+    })
+
+    new Cleave('#tel-customer-input', {
+        phone: true,
+        phoneRegionCode: 'BR'
+    })
+
+    new Cleave('#cpf-customer-input', {
+        blocks: [3, 3, 3, 2],
+        delimiters: ['.', '.', '-'],
+        uppercase: true
+    })
 
     $("#form-credit-card").submit(function(e) {
         e.preventDefault()
+
+        $('#steps li:last-child a').tab('show')
+        $('#steps li:nth-child(2) a').removeClass('active')
+        $('#steps li:last-child a').addClass('active')
+        $('#steps li:last-child a').removeClass('disabled')
+    })
+
+    $("#form-payment-slip").submit(function(e) {
+        e.preventDefault()
+
+        $('#steps li:last-child a').tab('show')
+        $('#steps li:nth-child(2) a').removeClass('active')
+        $('#steps li:last-child a').addClass('active')
+        $('#steps li:last-child a').removeClass('disabled')
     })
 })

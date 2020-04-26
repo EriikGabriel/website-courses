@@ -202,24 +202,36 @@
             <div class="row">
               <div class="col-md-6 signup-buy">
                 <form id="form-signup-buy" class="d-flex flex-column justify-content-center align-items-center">
-                  <h6 class="h6 mb-3"><b>Quero me cadastrar</b></h6>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="name-input-signup" placeholder="Digite um nome" autocomplete="off" required>
+                  <h6 class="h6 mb-3 text-primary"><b>Quero me cadastrar</b></h6>
+                  <div class="form-group input-group d-flex justify-content-center">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" class="form-control col-md-12 col-8" id="name-input-signup" placeholder="Digite um nome" autocomplete="off" required>
                   </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="password-input-signup" minlength="8" maxlength="20" placeholder="Digite uma senha" autocomplete="off" required>
+                  <div class="form-group input-group d-flex justify-content-center">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control col-md-12 col-8" id="password-input-signup" minlength="8" maxlength="20" placeholder="Digite uma senha" autocomplete="off" required>
                   </div>
                   <button type="submit" class="btn btn-primary mb-3 col-md-10 col-5">Cadastrar</button>
                 </form>
               </div>
               <div class="col-md-6 text-center signin-buy">
                 <form id="form-signin-buy" class="d-flex flex-column justify-content-center align-items-center">
-                  <h6 class="h6 mt-md-0 mt-3 mb-3"><b>Já tenho uma conta</b></h6>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="name-input-signin" placeholder="Digite um nome" autocomplete="off" required>
+                  <h6 class="h6 mt-md-0 mt-3 mb-3 text-primary"><b>Já tenho uma conta</b></h6>
+                  <div class="form-group input-group d-flex justify-content-center">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" class="form-control col-md-12 col-8" id="name-input-signin" placeholder="Digite um nome" autocomplete="off" required>
                   </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="password-input-signin" minlength="8" maxlength="20" placeholder="Digite uma senha" autocomplete="off" required>
+                  <div class="form-group input-group d-flex justify-content-center">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="password" class="form-control col-md-12 col-8" id="password-input-signin" minlength="8" maxlength="20" placeholder="Digite uma senha" autocomplete="off" required>
                   </div>
                   <button type="submit" class="btn btn-primary mb-3 col-md-10 col-7 col-sm-6">Entrar na conta</button>
                 </form>
@@ -233,35 +245,49 @@
                   <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#credit-card" role="tab" aria-selected="false"><i class="far fa-credit-card fa-lg" aria-hidden="true"></i></a>
                   <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link active d-md-block d-none" id="pills-home-tab" data-toggle="pill" href="#credit-card" role="tab"  aria-selected="true"><i class="far fa-credit-card fa-lg" aria-hidden="true"></i> Cartão de Crédito</a>
                 </li>
-                <li class="nav-item mr-3">
-                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#payment-slip" role="tab" aria-selected="false"><i class="fas fa-receipt fa-lg"></i></a>
-                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-block d-none" id="pills-profile-tab" data-toggle="pill" href="#payment-slip" role="tab" aria-selected="false"><i class="fas fa-receipt fa-lg"></i> Boleto</a>
-                </li>
                 <li class="nav-item">
-                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#transaction" role="tab" aria-selected="false"><i class="fas fa-hand-holding-usd fa-lg"></i></a>
-                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-block d-none" id="pills-contact-tab" data-toggle="pill" href="#transaction" role="tab" aria-selected="false"><i class="fas fa-hand-holding-usd fa-lg"></i> Transação</a>
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-none d-block" id="pills-contact-tab" data-toggle="pill" href="#payment-slip" role="tab" aria-selected="false"><i class="fas fa-receipt fa-lg"></i></a>
+                  <a class="btn btn-outline-primary border-0 flex-sm-fill text-sm-center nav-link d-md-block d-none" id="pills-profile-tab" data-toggle="pill" href="#payment-slip" role="tab" aria-selected="false"><i class="fas fa-receipt fa-lg"></i> Boleto Bancário</a>
                 </li>
               </ul>
             </nav>
             <div class="modal-body text-center tab-pane fade show active tab-content">
               <div class="tab-pane fade show active" id="credit-card" role="tabpanel">
                 <form method="post" id="form-credit-card">
-                  <div class="form-group">
-                    <div class="row d-flex justify-content-center">
-                      <input type="text" id="input-credit-number" class="form-control col-7 col-md-5" placeholder="Número do cartão" minlength="19" maxlength="19" autocomplete="off" required>
-                      <input type="text" class="form-control col-md-3 col-7 ml-md-3 mt-2 mt-md-0" id="input-cvv" placeholder="CVV" minlength="3" maxlength="3" autocomplete="off" required>
-                    <div class="input-group-append d-md-flex d-none">
-                      <span class="input-group-text" rel="tooltip" data-placement="right" title="Valor de 3 dígitos na parte de trás do cartão. Ex: 012">?</span>
+                  <div class="form-row d-flex justify-content-center">
+                    <div class="col-10 col-md-7">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                        </div>
+                        <input type="text" id="input-credit-number" class="form-control" placeholder="Número do cartão" minlength="19" maxlength="19" autocomplete="off" required>
+                      </div>
                     </div>
+                    <div class="col-10 col-md-5">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <input type="text" class="form-control ml-md-3" id="input-cvv" placeholder="CVV" minlength="3" maxlength="3" autocomplete="off" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text" rel="tooltip" data-placement="right" title="Valor de 3 dígitos na parte de trás do cartão. Ex: 012"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="row d-flex justify-content-center">
-                      <input type="text" id="input-titular" class="form-control col-7 col-md-5" placeholder="Titular do cartão" autocomplete="off" required>
-                      <input type="text" class="form-control col-md-3 col-7 ml-md-3 mt-2 mt-md-0" id="input-expire-date" placeholder="MM/AA" minlength="5" maxlength="5" autocomplete="off" required>
-                    <div class="input-group-append d-md-flex d-none">
-                      <span class="input-group-text" rel="tooltip" data-placement="right" title="Data de expiração do cartão">?</span>
+                  <div class="form-row d-flex justify-content-center">
+                    <div class="col-10 col-md-7">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-address-card" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" id="input-titular" class="form-control" placeholder="Titular do cartão" autocomplete="off" required>
+                      </div>
                     </div>
+                    <div class="col-10 col-md-5">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <input type="text" class="form-control ml-md-3" id="input-expire-date" placeholder="MM/AA" minlength="5" maxlength="5" autocomplete="off" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text" rel="tooltip" data-placement="right" title="Data de expiração do cartão"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary col-md-6 col-sm-7 col-8 mt-1">Confirmar</button>
@@ -277,22 +303,54 @@
               </div>
               <div class="tab-pane fade show" id="payment-slip" role="tabpanel">
                 <form method="post" id="form-payment-slip">
-                  <div class="form-group d-flex justify-content-center">
-                    <input type="text" id="name-customer-input" class="form-control col-md-9 col-7" placeholder="Digite seu nome">
+                  <div class="form-row d-flex justify-content-center">
+                    <div class="col-lg-9 col-md-12 col-10">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" id="name-customer-input" class="form-control" placeholder="Digite seu nome">
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group form-inline d-flex justify-content-center">
-                    <input type="email" class="form-control col-md-5 col-7" id="email-customer-input" placeholder="Digite seu email">
-                    <input type="text" id="tel-customer-input" class="form-control col-md-4 col-7 ml-md-1 mt-2 mt-md-0" placeholder="Telefone">
+                  <div class="form-row d-flex justify-content-center">
+                    <div class="col-lg-5 col-md-7 col-10">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-at"></i></span>
+                        </div>
+                        <input type="email" class="form-control" id="email-customer-input" placeholder="Digite seu email">
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-10">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend ml-md-1">
+                          <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" id="tel-customer-input" class="form-control" placeholder="Telefone">
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group form-inline d-flex justify-content-center">
-                    <input type="text" id="cpf-customer-input" class="form-control col-md-5 col-7" placeholder="Digite seu CPF">
-                    <input type="text" id="country-customer-input" class="form-control col-md-4 col-7 ml-md-1 mt-2 mt-md-0" placeholder="País">
+                  <div class="form-row d-flex justify-content-center">
+                    <div class="col-lg-5 col-md-7 col-10">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        </div>
+                        <input type="text" id="cpf-customer-input" class="form-control" placeholder="Digite seu CPF">
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-10">
+                      <div class="input-group form-group d-flex justify-content-center">
+                        <div class="input-group-prepend ml-md-1">
+                          <span class="input-group-text"><i class="fa fa-flag" aria-hidden="true"></i> </span>
+                        </div>
+                        <input type="text" id="country-customer-input" class="form-control" placeholder="País">
+                      </div>
+                    </div>
                   </div>
                   <button type="submit" class="btn btn-primary col-md-6 col-sm-7 col-8 mt-1">Confirmar</button>
                 </form>
-              </div>
-              <div class="tab-pane fade show" id="transaction" role="tabpanel">
-                Pagamento 3
               </div>
             </div>
           </div>
@@ -311,6 +369,8 @@
   <script src="src/js/bootstrap.bundle.min.js"></script>
   <script src="src/libs/iziToast/js/iziToast.min.js"></script>
   <script src="src/libs/cleave/cleave.min.js"></script>
+  <script src="src/libs/cleave/cleave-phone.br.js"></script>
+  <script src="src/libs/cleave/phone-type-formatter.br.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="src/courses/controller/course-view.js"></script>
 </body>
