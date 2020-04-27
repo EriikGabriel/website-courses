@@ -33,13 +33,34 @@ $(document).ready(function () {
 
     $("[rel='tooltip']").tooltip();
 
-    $("#form-signup-buy").submit(function(e){
+    $(".identification-forms").submit(function(e){
         e.preventDefault()
-
+        
+        $('#steps li:nth-child(2) a').removeClass('disabled')
         $('#steps li:nth-child(2) a').tab('show')
         $('#steps li:first-child a').removeClass('active')
         $('#steps li:nth-child(2) a').addClass('active')
-        $('#steps li:nth-child(2) a').removeClass('disabled')
+
+        if($(this)[0].id === 'form-signup-buy') {
+            console.log('Cadastro!') 
+        } else {
+            console.log('Login!')
+        }
+    })
+
+    $(".payment-forms").submit(function(e) {
+        e.preventDefault()
+
+        $('#steps li:last-child a').removeClass('disabled')
+        $('#steps li:last-child a').tab('show')
+        $('#steps li:nth-child(2) a').removeClass('active')
+        $('#steps li:last-child a').addClass('active')
+
+        if($(this)[0].id === 'form-credit-card') {
+            console.log('Cartão de Crédito!') 
+        } else {
+            console.log('Boleto!')
+        }
     })
 
     function OnlyNumberInput(input_element) {
@@ -122,23 +143,5 @@ $(document).ready(function () {
         blocks: [3, 3, 3, 2],
         delimiters: ['.', '.', '-'],
         uppercase: true
-    })
-
-    $("#form-credit-card").submit(function(e) {
-        e.preventDefault()
-
-        $('#steps li:last-child a').tab('show')
-        $('#steps li:nth-child(2) a').removeClass('active')
-        $('#steps li:last-child a').addClass('active')
-        $('#steps li:last-child a').removeClass('disabled')
-    })
-
-    $("#form-payment-slip").submit(function(e) {
-        e.preventDefault()
-
-        $('#steps li:last-child a').tab('show')
-        $('#steps li:nth-child(2) a').removeClass('active')
-        $('#steps li:last-child a').addClass('active')
-        $('#steps li:last-child a').removeClass('disabled')
     })
 })

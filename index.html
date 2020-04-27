@@ -57,7 +57,7 @@
     <div class="container" style="margin-top: 100px;">
       <div class="row">
         <div class="col-md-6 col-12 mr-5">
-          <div class="h1 text-md-left text-center"><b>Aprendendo a criar seus proprios jogos, de maneira fácil, direta e sem enrolação!</b></div>
+          <div class="h1 text-md-left text-center"><b>Aprendendo a criar seus próprios jogos, de maneira fácil, direta e sem enrolação!</b></div>
           <p class="lead text-md-left text-center text-muted mt-4">
             Nossos cursos surgiram para facilitar a vida de quem 
             procura entrar pro mercado de desenvolvimento de games e não sabe por onde começar! 
@@ -180,16 +180,13 @@
           <nav class="nav nav-pills flex-row">
             <ul class="nav nav-pills mb-3" id="steps" role="tablist">
               <li class="nav-item mt-3 mr-3">
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill active d-md-block d-none" data-toggle="pill" href="#identification-step" role="tab" aria-selected="true">Identificação</a>
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" data-toggle="pill" href="#identification-step" role="tab" aria-selected="false"><i class="fas fa-id-card-alt fa-lg"></i></a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill active" data-toggle="pill" href="#identification-step" role="tab" aria-selected="true"><i class="fas fa-id-card-alt fa-lg d-md-none d-block"></i><div class="d-md-block d-none">Identificação</div></a>
               </li>
               <li class="nav-item mt-3 mr-3">
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill  d-md-block d-none" data-toggle="pill" href="#payment-step" role="tab" aria-selected="false">Pagamento</a>
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill  d-md-none d-block" data-toggle="pill" href="#payment-step" role="tab" aria-selected="false"><i class="fas fa-money-check-alt fa-lg"></i></a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill disabled" data-toggle="pill" href="#payment-step" role="tab" aria-selected="false"><i class="fas fa-money-check-alt fa-lg d-md-none d-block"></i><div class="d-md-block d-none">Pagamento</div></a>
               </li>
               <li class="nav-item mt-3">
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-block d-none" data-toggle="pill" href="#finalization-step" role="tab" aria-selected="false">Finalização</a>
-                <a class="flex-sm-fill text-sm-center nav-link rounded-pill d-md-none d-block" data-toggle="pill" href="#finalization-step" role="tab" aria-selected="false"><i class="fas fa-check-double fa-lg"></i></a>
+                <a class="flex-sm-fill text-sm-center nav-link rounded-pill disabled" data-toggle="pill" href="#finalization-step" role="tab" aria-selected="false"><i class="fas fa-check-double fa-lg d-md-none d-block"></i><div class="d-md-block d-none">Finalização</div></a>
               </li>
             </ul>
           </nav>
@@ -201,7 +198,7 @@
           <div class="tab-pane fade show active" id="identification-step" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="row">
               <div class="col-md-6 signup-buy">
-                <form id="form-signup-buy" class="d-flex flex-column justify-content-center align-items-center">
+                <form id="form-signup-buy" class="d-flex flex-column justify-content-center align-items-center identification-forms">
                   <h6 class="h6 mb-3 text-primary"><b>Quero me cadastrar</b></h6>
                   <div class="form-group input-group d-flex justify-content-center">
                     <div class="input-group-prepend">
@@ -219,7 +216,7 @@
                 </form>
               </div>
               <div class="col-md-6 text-center signin-buy">
-                <form id="form-signin-buy" class="d-flex flex-column justify-content-center align-items-center">
+                <form id="form-signin-buy" class="d-flex flex-column justify-content-center align-items-center identification-forms">
                   <h6 class="h6 mt-md-0 mt-3 mb-3 text-primary"><b>Já tenho uma conta</b></h6>
                   <div class="form-group input-group d-flex justify-content-center">
                     <div class="input-group-prepend">
@@ -253,7 +250,7 @@
             </nav>
             <div class="modal-body text-center tab-pane fade show active tab-content">
               <div class="tab-pane fade show active" id="credit-card" role="tabpanel">
-                <form method="post" id="form-credit-card">
+                <form method="post" id="form-credit-card" class="payment-forms">
                   <div class="form-row d-flex justify-content-center">
                     <div class="col-10 col-md-7">
                       <div class="input-group form-group d-flex justify-content-center">
@@ -302,14 +299,14 @@
                 </div>
               </div>
               <div class="tab-pane fade show" id="payment-slip" role="tabpanel">
-                <form method="post" id="form-payment-slip">
+                <form method="post" id="form-payment-slip" class="payment-forms">
                   <div class="form-row d-flex justify-content-center">
                     <div class="col-lg-9 col-md-12 col-10">
                       <div class="input-group form-group d-flex justify-content-center">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" id="name-customer-input" class="form-control" placeholder="Digite seu nome">
+                        <input type="text" id="name-customer-input" class="form-control" placeholder="Digite seu nome" autocomplete="off" required>
                       </div>
                     </div>
                   </div>
@@ -319,7 +316,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-at"></i></span>
                         </div>
-                        <input type="email" class="form-control" id="email-customer-input" placeholder="Digite seu email">
+                        <input type="email" class="form-control" id="email-customer-input" placeholder="Digite seu email" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-5 col-10">
@@ -327,7 +324,7 @@
                         <div class="input-group-prepend ml-md-1">
                           <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
                         </div>
-                        <input type="text" id="tel-customer-input" class="form-control" placeholder="Telefone">
+                        <input type="text" id="tel-customer-input" class="form-control" placeholder="Telefone" autocomplete="off" required>
                       </div>
                     </div>
                   </div>
@@ -337,7 +334,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                         </div>
-                        <input type="text" id="cpf-customer-input" class="form-control" placeholder="Digite seu CPF">
+                        <input type="text" id="cpf-customer-input" class="form-control" placeholder="Digite seu CPF" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-5 col-10">
@@ -345,7 +342,7 @@
                         <div class="input-group-prepend ml-md-1">
                           <span class="input-group-text"><i class="fa fa-flag" aria-hidden="true"></i> </span>
                         </div>
-                        <input type="text" id="country-customer-input" class="form-control" placeholder="País">
+                        <input type="text" id="country-customer-input" class="form-control" placeholder="País" autocomplete="off" required>
                       </div>
                     </div>
                   </div>
@@ -354,9 +351,69 @@
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="finalization-step" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
+          <div class="tab-pane fade" id="finalization-step" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="card bg-light">
+              <img class="card-img-top" src="src/images/payment-finish.svg" width="300" height="300">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-6 d-flex flex-column justify-content-around py-lg-5 mb-lg-0 mb-4">
+                    <div class="row text-left ml-1 mr-1">
+                      <div class="mr-1"><i class="fa fa-user text-muted fa-sm"></i> Nome do comprador</div>
+                      <div class="col-md-12 mb-2" id="result-costumer-name"><b>data:costumer-name</b></div>
+                    </div>
+                    <div class="row text-left ml-1 mr-1">
+                      <div class="mr-1"><i class="fas fa-money-bill text-muted fa-sm"></i> Método de pagamento</div>
+                      <div class="col-md-12 mb-2" id="result-payment-method"><b>data:payment-method</b></div>
+                    </div>
+                    <div class="row text-left ml-1 mr-1 credit-card-info d-none">
+                      <div class="mr-1"><i class="fas fa-credit-card text-muted fa-sm"></i> Número do cartão</div>
+                      <div class="col-md-12 mb-2" id="result-credit-number"><b>data:credit-number</b></div>
+                    </div>
+                    <div class="row text-left ml-1 mr-1 credit-card-info d-none">
+                      <div class="mr-1"><i class="fas fa-address-card text-muted fa-sm"></i> Titular do cartão</div>
+                      <div class="col-md-12 mb-2" id="result-titular"><b>data:titular</b></div>
+                    </div>
+                    <div class="row text-left ml-1 mr-1 payment-slip-info d-none">
+                      <div class="mr-1"><i class="fas fa-at text-muted fa-sm"></i> Email</div>
+                      <div class="col-md-12 mb-2" id="result-email"><b>data:email</b></div>
+                    </div>
+                    <div class="row text-left ml-1 mr-1 payment-slip-info d-none">
+                      <div class="mr-1"><i class="fas fa-id-card text-muted fa-sm"></i> CPF</div>
+                      <div class="col-md-12 mb-2" id="result-cpf"><b>data:cpf</b></div>
+                    </div>
+                    <div class="row text-left ml-1 mr-1 payment-slip-info d-none">
+                      <div class="mr-1"><i class="fa fa-phone text-muted fa-sm"></i> Telefone</div>
+                      <div class="col-md-12 mb-2" id="result-tel"><b>data:telefone</b></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 bg-secundary">
+                    <div class="card" style="background-color: rgba(196, 196, 196, 0.4);">
+                      <div class="d-flex justify-content-center mt-2">
+                        <img src="src/images/game-design.svg" id="result-course-icon" alt="Icone do produto" width="120" height="120">
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title" id="result-course-name"><b>Curso de Game Design</b></h5>
+                        <div class="card-text my-2" id="result-course-details" style="font-size: small;">Curso sobre os fundamentos e técnicas envolvendo o Game Design</div>
+                        <div class="card-text my-1" id="result-course-class" style="font-size: small;"><i class="fas fa-book fa-lg text-muted" aria-hidden="true"></i> 8 aulas</div>
+                        <div class="card-text my-1" id="result-course-duration" style="font-size: small;"><i class="fas fa-clock fa-lg text-muted" aria-hidden="true"></i> 2h 30min</div>
+                        <div class="card-text my-1" id="result-course-certificate" style="font-size: small;"><i class="fas fa-certificate fa-lg text-muted" aria-hidden="true"></i> Com certificado</div>
+                        <h5 class="card-text text-primary my-2" id="result-course-price"><b>R$ 45.00</b></h5>
+                      </div>
+                      <div class="card-footer">
+                        <button type="button" class="btn btn-primary" id="btn-finish-purchase">Finalizar Compra</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
+          <div class="mr-auto">
+            <img src="src/images/logo-pagar-me.webp" width="50" alt="Pagar.me" rel="tooltip" data-placement="top" title="Integração ao Pagar.me">
+          <img src="src/images/secure-payment-icon.svg" style="color: #6c757d;" width="30" alt="Pagar.me" rel="tooltip" data-placement="top" title="Certificado de Segurança">
+          </div>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar compra</button>
         </div>
       </div>
