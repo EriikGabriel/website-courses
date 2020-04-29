@@ -9,9 +9,7 @@
 }
 
 .input-none-out:hover, .input-none-out {
-    background-color: white !important;
     box-shadow: none !important;
-    border: none !important;
 }
 
 .link-media {
@@ -47,16 +45,26 @@ html, body {
     transition: all 1s;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) { /* xsm media-size -> md media-size */ 
     .signin-buy {
         border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
     }
+
+    .login-animation {
+        width: 300px; 
+        height: 300px;
+    }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) { /* md media-size -> xlarge media-size */ 
     .signup-buy {
         border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
     }
+
+    .login-animation {
+        width: 500px; 
+        height: 500px;
+    }   
 }
 
 @media only screen and (max-width: 490px) {

@@ -23,6 +23,10 @@ $(document).ready(function () {
         $("#content").load('src/courses/view/modeling.html')       
     })
 
+    $('.user-icon').click(function() {
+        window.location.href = 'login.html'
+    })
+
     $("#btn-ready").click(function() {
         window.scroll({
             top: document.querySelector('.course-cards').offsetTop - 120,
@@ -143,5 +147,12 @@ $(document).ready(function () {
         blocks: [3, 3, 3, 2],
         delimiters: ['.', '.', '-'],
         uppercase: true
+    })
+
+    $('#form-signin').submit(function(e) {
+        alert("aaa!")
+        e.preventDefault()
+
+        alert("Login!")
     })
 })
