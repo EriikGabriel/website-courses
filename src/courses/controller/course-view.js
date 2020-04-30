@@ -1,33 +1,33 @@
-$(document).ready(function () { 
-    $(".home").click(function() {
-        window.location.reload()      
+$(document).ready(function () {
+    $(".home").click(function () {
+        window.location.reload()
     })
 
-    $(".game-design").click(function() {
+    $(".game-design").click(function () {
         $("#content").empty()
-        $("#content").load('src/courses/view/game-design.html')       
+        $("#content").load('src/courses/view/game-design.html')
     })
 
-    $(".programmer").click(function() {
+    $(".programmer").click(function () {
         $("#content").empty()
-        $("#content").load('src/courses/view/programmer.html')       
+        $("#content").load('src/courses/view/programmer.html')
     })
 
-    $(".level-design").click(function() {
+    $(".level-design").click(function () {
         $("#content").empty()
-        $("#content").load('src/courses/view/level-design.html')       
+        $("#content").load('src/courses/view/level-design.html')
     })
 
-    $(".modeling").click(function() {
+    $(".modeling").click(function () {
         $("#content").empty()
-        $("#content").load('src/courses/view/modeling.html')       
+        $("#content").load('src/courses/view/modeling.html')
     })
 
-    $('.user-icon').click(function() {
+    $('.user-icon').click(function () {
         window.location.href = 'login.html'
     })
 
-    $("#btn-ready").click(function() {
+    $("#btn-ready").click(function () {
         window.scroll({
             top: document.querySelector('.course-cards').offsetTop - 120,
             left: 0,
@@ -37,22 +37,22 @@ $(document).ready(function () {
 
     $("[rel='tooltip']").tooltip();
 
-    $(".identification-forms").submit(function(e){
+    $(".identification-forms").submit(function (e) {
         e.preventDefault()
-        
+
         $('#steps li:nth-child(2) a').removeClass('disabled')
         $('#steps li:nth-child(2) a').tab('show')
         $('#steps li:first-child a').removeClass('active')
         $('#steps li:nth-child(2) a').addClass('active')
 
-        if($(this)[0].id === 'form-signup-buy') {
-            console.log('Cadastro!') 
+        if ($(this)[0].id === 'form-signup-buy') {
+            console.log('Cadastro!')
         } else {
             console.log('Login!')
         }
     })
 
-    $(".payment-forms").submit(function(e) {
+    $(".payment-forms").submit(function (e) {
         e.preventDefault()
 
         $('#steps li:last-child a').removeClass('disabled')
@@ -60,8 +60,8 @@ $(document).ready(function () {
         $('#steps li:nth-child(2) a').removeClass('active')
         $('#steps li:last-child a').addClass('active')
 
-        if($(this)[0].id === 'form-credit-card') {
-            console.log('Cartão de Crédito!') 
+        if ($(this)[0].id === 'form-credit-card') {
+            console.log('Cartão de Crédito!')
         } else {
             console.log('Boleto!')
         }
@@ -69,9 +69,9 @@ $(document).ready(function () {
 
     function OnlyNumberInput(input_element) {
         $(input_element).keypress(function (e) {
-          if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-              return false;
-          }
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
         });
     }
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
                     $('.fa-cc-jcb').addClass('text-primary')
                     $('.fa-cc-jcb').toggleClass('icon-scale');
                     break;
-                    
+
                 case 'discover':
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').removeClass('text-muted')
@@ -147,12 +147,5 @@ $(document).ready(function () {
         blocks: [3, 3, 3, 2],
         delimiters: ['.', '.', '-'],
         uppercase: true
-    })
-
-    $('#form-signin').submit(function(e) {
-        alert("aaa!")
-        e.preventDefault()
-
-        alert("Login!")
     })
 })

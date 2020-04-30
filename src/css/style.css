@@ -45,6 +45,14 @@ html, body {
     transition: all 1s;
 }
 
+.card-signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+}
+
 @media only screen and (max-width: 767px) { /* xsm media-size -> md media-size */ 
     .signin-buy {
         border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -53,6 +61,10 @@ html, body {
     .login-animation {
         width: 300px; 
         height: 300px;
+    }
+
+    .banner-illustrations {
+        display: none;
     }
 }
 
@@ -64,7 +76,7 @@ html, body {
     .login-animation {
         width: 500px; 
         height: 500px;
-    }   
+    }
 }
 
 @media only screen and (max-width: 490px) {
@@ -76,5 +88,15 @@ html, body {
     #message-warning {
         font-size: 14px;
         text-align: center;
+    }
+
+    .card-signup {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .banner-illustrations {
+        width: 290px;
     }
 }
