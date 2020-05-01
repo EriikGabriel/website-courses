@@ -5,25 +5,12 @@ namespace src\model;
 class User {
     private $id, $name, $passoword, $email, $credit_card_number, $cvv, $titular, $expire_date, $cpf, $tel, $photo;
     
-
     /**
      * Get the value of id
      */ 
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**

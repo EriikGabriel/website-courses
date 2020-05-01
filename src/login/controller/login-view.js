@@ -41,9 +41,46 @@ $(document).ready(function() {
                     tel: $("#signup-tel").val()
                 }
             }).done(function(res) {
-                alert("Cadastro realizado com suceso!")
+                $("#form-signup-2 button").addClass('d-none')
+
+                iziToast.success({
+                    title: 'Sucesso',
+                    message: 'Você foi cadastrado com sucesso!',
+                    position: 'topCenter',
+                    onClosing: function() {
+                        window.location.href = "index.html"
+                    }
+                }); 
             })
-        }  
+        }
+    })
+
+    $("#btn-jump-step-signup").click(function() {
+        $.post({
+            url: "src/users/model/user-control.php",
+            data: {
+                name: $("#form-data-name").html(),
+                email: $("#form-data-email").html(),
+                password: $("#form-data-password").html(),
+                credit_number: null,
+                cvv: null,
+                titular: null,
+                expire_date: null,
+                cpf: null,
+                tel: null
+            }
+        }).done(function(res) {
+            $("#form-signup-2 button").addClass('d-none')
+
+            iziToast.success({
+                title: 'Sucesso',
+                message: 'Você foi cadastrado com sucesso!',
+                position: 'topCenter',
+                onClosing: function() {
+                    window.location.href = "index.html"
+                }
+            }); 
+        })
     })
 
     function OnlyNumberInput(input_element) {
