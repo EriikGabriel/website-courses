@@ -64,7 +64,7 @@
                                 <div class="input-group-prepend ml-lg-3">
                                     <span class="input-group-text"><i class="fas fa-calendar-times text-primary"></i></span>
                                 </div>
-                                <input type="text" class="form-control" id="signup-expire-date" placeholder="MM/AA" minlength="5" maxlength="5" autocomplete="off" required>
+                                <input type="text" class="form-control" id="signup-expire-date" placeholder="MM/AA" autocomplete="off" required>
                             </div>
                             </div>
                         </div>
@@ -93,10 +93,20 @@
                         </div>
                     </div>
                 </form>
+                <div id="form-data-name" class="d-none"></div>
+                <div id="form-data-email" class="d-none"></div>
+                <div id="form-data-password" class="d-none"></div>
             </div>
         </div>
         <img src="src/images/vision.svg" width="400" class="position-absolute banner-illustrations" style="right: 0; bottom: 0; z-index: -1;">
     </div>
 </div>
 
+<script src="src/libs/cleave/cleave.min.js"></script>
 <script src="src/login/controller/login-view.js"></script>
+
+<script>
+    new Cleave('#signup-credit-number', {
+        creditCard: true
+    })
+</script>

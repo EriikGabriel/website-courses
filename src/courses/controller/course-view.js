@@ -54,16 +54,19 @@ $(document).ready(function () {
 
     $(".payment-forms").submit(function (e) {
         e.preventDefault()
-
-        $('#steps li:last-child a').removeClass('disabled')
-        $('#steps li:last-child a').tab('show')
-        $('#steps li:nth-child(2) a').removeClass('active')
-        $('#steps li:last-child a').addClass('active')
-
-        if ($(this)[0].id === 'form-credit-card') {
-            console.log('Cartão de Crédito!')
-        } else {
-            console.log('Boleto!')
+        console.log()
+        if($(this)[0].id === 'form-payment-slip' || ValidationCredit() !== false 
+        && $(this)[0].id === 'form-credit-card') {
+            $('#steps li:last-child a').removeClass('disabled')
+            $('#steps li:last-child a').tab('show')
+            $('#steps li:nth-child(2) a').removeClass('active')
+            $('#steps li:last-child a').addClass('active')
+    
+            if ($(this)[0].id === 'form-credit-card') {
+                console.log('Cartão de Crédito!')
+            } else {
+                console.log('Boleto!')
+            }
         }
     })
 
@@ -87,65 +90,61 @@ $(document).ready(function () {
                     $('.cc-icon').removeClass('text-muted')
                     $('.fa-cc-mastercard').addClass('text-primary')
                     $('.fa-cc-mastercard').toggleClass('icon-scale')
-                    break;
+                break;
 
                 case 'visa':
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').removeClass('text-muted')
                     $('.fa-cc-visa').addClass('text-primary')
                     $('.fa-cc-visa').toggleClass('icon-scale')
-                    break;
+                break;
 
                 case 'amex':
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').removeClass('text-muted')
                     $('.fa-cc-amex').addClass('text-primary')
                     $('.fa-cc-amex').toggleClass('icon-scale')
-                    break;
+                break;
 
                 case 'diners':
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').removeClass('text-muted')
                     $('.fa-cc-diners-club').addClass('text-primary')
                     $('.fa-cc-diners-club').toggleClass('icon-scale')
-                    break;
+                break;
 
                 case 'jcb':
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').removeClass('text-muted')
                     $('.fa-cc-jcb').addClass('text-primary')
                     $('.fa-cc-jcb').toggleClass('icon-scale');
-                    break;
+                break;
 
                 case 'discover':
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').removeClass('text-muted')
                     $('.fa-cc-discover').addClass('text-primary')
                     $('.fa-cc-discover').toggleClass('icon-scale')
-                    break;
+                break;
 
                 default:
                     $('.cc-icon').removeClass('text-primary')
                     $('.cc-icon').addClass('text-muted')
                     $('.cc-icon').removeClass('icon-scale')
-                    break;
+                break;
             }
         }
     })
 
-    new Cleave('#input-expire-date', {
-        date: true,
-        datePattern: ['m', 'y']
-    })
+    $('#input-expire-date').mask("00/00", { placeholder: "" }).attr('minlength', 5);
+    $('#cpf-customer-input').mask("000.000.000-00", { placeholder: "" }).attr('minlength', 14);
+    $('#tel-customer-input').mask("(00) 0000-0000", { placeholder: "" }).attr('minlength', 14);
 
-    new Cleave('#tel-customer-input', {
-        phone: true,
-        phoneRegionCode: 'BR'
-    })
-
-    new Cleave('#cpf-customer-input', {
-        blocks: [3, 3, 3, 2],
-        delimiters: ['.', '.', '-'],
-        uppercase: true
-    })
+    function ValidationCredit() {
+        if($('#input-credit-number').val().length < 16) {
+            $('#input-credit-number').focus()
+            
+            return false;
+        }
+    }
 })

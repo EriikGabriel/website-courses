@@ -5,7 +5,13 @@ CREATE TABLE usuarios (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(50) NOT NULL,
     senha VARCHAR(32) NOT NULL,
-    email VARCHAR(100) UNIQUE,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    numero_cartao VARCHAR(16),
+    cvv VARCHAR(3),
+    titular VARCHAR(80),
+    data_expiracao VARCHAR(5),
+    cpf VARCHAR(11),
+    telefone VARCHAR(14),
     foto VARCHAR(200)
 ) ENGINE=INNODB;
 

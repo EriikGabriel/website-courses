@@ -8,7 +8,7 @@
     color: #00438b !important;
 }
 
-.input-none-out:hover, .input-none-out {
+input.input-none-out:hover, input.input-none-out {
     box-shadow: none !important;
 }
 

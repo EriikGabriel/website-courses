@@ -1,6 +1,6 @@
 <?php 
 
-namespace src\database;
+namespace src\model;
 
 class Conexao {
     private static $instance;
