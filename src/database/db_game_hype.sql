@@ -6,11 +6,11 @@ CREATE TABLE usuarios (
 	nome VARCHAR(50) NOT NULL,
     senha VARCHAR(32) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    numero_cartao VARCHAR(16),
+    numero_cartao VARCHAR(20),
     cvv VARCHAR(3),
     titular VARCHAR(80),
     data_expiracao VARCHAR(5),
-    cpf VARCHAR(11),
+    cpf VARCHAR(14),
     telefone VARCHAR(14),
     foto VARCHAR(200)
 ) ENGINE=INNODB;
@@ -45,4 +45,4 @@ VALUES(null, "Level Design", "Curso sobre o desenvolvimento, criação e regras 
 INSERT INTO cursos 
 VALUES(null, "Modelagem e Animação", "Curso sobre estruturação de modelagens 3D e criação de animações", 8, "2h 10min", 'N', 38.00);
 
-SELECT * FROM cursos;
+SELECT * FROM usuarios;

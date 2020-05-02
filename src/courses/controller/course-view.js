@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    if(sessionStorage.length > 0) {
+        $(".avatar div").removeClass("d-none")
+    }
+
     $(".home").click(function () {
         window.location.reload()
     })
@@ -23,9 +27,11 @@ $(document).ready(function () {
         $("#content").load('src/courses/view/modeling.html')
     })
 
-    $('.user-icon').click(function () {
-        window.location.href = 'login.html'
-    })
+    if(sessionStorage.length === 0) {
+        $('.user-icon').click(function () {
+            window.location.href = 'login.html'
+        })
+    }
 
     $("#btn-ready").click(function () {
         window.scroll({

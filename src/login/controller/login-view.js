@@ -4,7 +4,30 @@ $(document).ready(function() {
     $("#form-signin").submit(function(e) {
         e.preventDefault()
 
-        alert('Não enviado!')
+        $.post({
+            url: "src/users/model/user-control.php",
+            data: {
+                email: $("#signin-email").val(),
+                password: $("#signin-password").val(),
+                action: "Search Email"
+            }
+        }).done(function(res) {
+            if(res !== "false") {
+                if($("#keep-me-conected").is(':checked')) {
+                    console.log("Mantendo conectado!")
+                } else {
+                    sessionStorage.setItem('login-id', res)
+                }
+
+                location.href = "index.html" 
+            } else {
+                iziToast.error({
+                    title: 'Erro',
+                    message: 'O email ou a senha, estão incorretos!',
+                    position: 'topLeft'
+                }) 
+            }
+        })
     })
 
     $("#btn-signup").click(function() {
@@ -21,6 +44,13 @@ $(document).ready(function() {
 
         $("#form-signup-1").addClass("d-none")
         $("#form-signup-2").removeClass("d-none")   
+
+        $("#signup-email").addClass("border-primary")
+        $("#signup-email").removeClass("border-danger")
+        $(".email-icon i").addClass("text-primary")
+        $(".email-icon i").removeClass("text-danger")
+        $(".email-icon").addClass("border-primary")
+        $(".email-icon").removeClass("border-danger")
     })
 
     $("#form-signup-2").submit(function(e) {
@@ -38,19 +68,39 @@ $(document).ready(function() {
                     titular: $("#signup-titular").val(),
                     expire_date: $("#signup-expire-date").val(),
                     cpf: $("#signup-cpf").val(),
-                    tel: $("#signup-tel").val()
+                    tel: $("#signup-tel").val(),
+                    action: "Create User"
                 }
             }).done(function(res) {
-                $("#form-signup-2 button").addClass('d-none')
-
-                iziToast.success({
-                    title: 'Sucesso',
-                    message: 'Você foi cadastrado com sucesso!',
-                    position: 'topCenter',
-                    onClosing: function() {
-                        window.location.href = "index.html"
-                    }
-                }); 
+                if(res == "") {
+                    $("#form-signup-2 button").addClass('d-none')
+        
+                    iziToast.success({
+                        title: 'Sucesso',
+                        message: 'Você foi cadastrado com sucesso!',
+                        position: 'topCenter',
+                        onClosing: function() {
+                            location.href = "login.html"
+                        }
+                    });
+                }else if(res == 23000) {
+                    iziToast.error({
+                        title: 'Erro',
+                        message: 'Este email já está sendo utilizado!',
+                        position: 'topCenter',
+                        onOpening: function() {
+                            $("#form-signup-1").removeClass("d-none")
+                            $("#form-signup-2").addClass("d-none") 
+    
+                            $("#signup-email").removeClass("border-primary")
+                            $("#signup-email").addClass("border-danger")
+                            $(".email-icon i").removeClass("text-primary")
+                            $(".email-icon i").addClass("text-danger")
+                            $(".email-icon").removeClass("border-primary")
+                            $(".email-icon").addClass("border-danger")
+                        }
+                    })
+                } 
             })
         }
     })
@@ -67,19 +117,39 @@ $(document).ready(function() {
                 titular: null,
                 expire_date: null,
                 cpf: null,
-                tel: null
+                tel: null,
+                action: "Create User"
             }
         }).done(function(res) {
-            $("#form-signup-2 button").addClass('d-none')
+            if(res == "") {
+                $("#form-signup-2 button").addClass('d-none')
+    
+                iziToast.success({
+                    title: 'Sucesso',
+                    message: 'Você foi cadastrado com sucesso!',
+                    position: 'topCenter',
+                    onClosing: function() {
+                        location.href = "login.html"
+                    }
+                });
+            }else if(res == 23000) {
+                iziToast.error({
+                    title: 'Erro',
+                    message: 'Este email já está sendo utilizado!',
+                    position: 'topCenter',
+                    onOpening: function() {
+                        $("#form-signup-1").removeClass("d-none")
+                        $("#form-signup-2").addClass("d-none") 
 
-            iziToast.success({
-                title: 'Sucesso',
-                message: 'Você foi cadastrado com sucesso!',
-                position: 'topCenter',
-                onClosing: function() {
-                    window.location.href = "index.html"
-                }
-            }); 
+                        $("#signup-email").removeClass("border-primary")
+                        $("#signup-email").addClass("border-danger")
+                        $(".email-icon i").removeClass("text-primary")
+                        $(".email-icon i").addClass("text-danger")
+                        $(".email-icon").removeClass("border-primary")
+                        $(".email-icon").addClass("border-danger")
+                    }
+                })
+            }
         })
     })
 
