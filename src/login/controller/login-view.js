@@ -1,6 +1,10 @@
 $(document).ready(function() {
     $("[rel='tooltip']").tooltip();
 
+    $("#btn-login").click(function(e) {
+        location.href = `login.html?course=${e.target.name}`
+    })
+
     $("#form-signin").submit(function(e) {
         e.preventDefault()
 
@@ -19,7 +23,8 @@ $(document).ready(function() {
                     sessionStorage.setItem('login-id', res)
                 }
 
-                location.href = "index.html" 
+                var course_get = window.location.search.substring(1).split('&')[0]
+                location.href = `index.html?${course_get}`
             } else {
                 iziToast.error({
                     title: 'Erro',

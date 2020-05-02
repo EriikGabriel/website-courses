@@ -2,7 +2,9 @@
 
 require_once '../../../vendor/autoload.php';
 
+
 $action = filter_input(INPUT_POST, "action", FILTER_SANITIZE_SPECIAL_CHARS);
+$id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -39,7 +41,11 @@ switch ($action) {
             echo "false";
         }
         break;
-    
+    case 'Search Payment Datas':
+        $search = $userDao->select("usuarios", true, "id", $id)[0];
+        
+        echo json_encode($search);
+        break;
     default:
         break;
 }
