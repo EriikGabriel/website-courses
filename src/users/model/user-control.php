@@ -2,7 +2,6 @@
 
 require_once '../../../vendor/autoload.php';
 
-
 $action = filter_input(INPUT_POST, "action", FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);

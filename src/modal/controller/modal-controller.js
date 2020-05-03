@@ -6,16 +6,70 @@ $(document).ready(function() {
         console.log()
         if($(this)[0].id === 'form-payment-slip' || ValidationCredit() !== false 
         && $(this)[0].id === 'form-credit-card') {
+            $("#result-costumer-name").html(`<b>${$('#name-customer-input').val()}</b>`)
+            $(".credit-card-info").addClass("d-none")
+            $(".payment-slip-info").addClass("d-none")
+
+            if ($(this)[0].id === 'form-credit-card') {
+                $("#result-payment-method").html(`<b>Cartão de Crédito</b>`)
+                $("#result-credit-number").html(`<b>${$('#input-credit-number').val()}</b>`)
+                $("#result-titular").html(`<b>${$('#input-titular').val()}</b>`)
+                $(".credit-card-info").removeClass("d-none")
+            } else {
+                $("#result-payment-method").html(`<b>Boleto Bancário</b>`)
+                $("#result-email").html(`<b>${$('#email-customer-input').val()}</b>`)
+                $("#result-cpf").html(`<b>${$('#cpf-customer-input').val()}</b>`)
+                $("#result-tel").html(`<b>${$('#tel-customer-input').val()}</b>`)
+                $(".payment-slip-info").removeClass("d-none")
+            }
+
+            $.post({
+                url: "src/courses/model/course-control.php",
+                data: {
+                    name: $(".payment-forms button").attr("name"),
+                    action: "Search Course Data"
+                }
+            }).done(function(res){
+                console.log(JSON.parse(res))
+                const courseData = JSON.parse(res)
+                
+                switch (courseData.id) {
+                    case 1:
+                        $("#result-course-icon").attr("src", "src/images/game-design.svg")
+                        break;
+                    case 2:
+                        $("#result-course-icon").attr("src", "src/images/game-programmer.svg")
+                        break;
+                    case 3:
+                        $("#result-course-icon").attr("src", "src/images/level-design.svg")
+                        break;
+                    case 4:
+                        $("#result-course-icon").attr("src", "src/images/3d-modeling.svg")
+                        break;
+                    default:
+                        break;
+                }
+
+                if(courseData.certificado == "S") {
+                    var certificado = "Com certificado"
+                } else {
+                    var certificado = "Sem certificado" 
+                }
+
+                $("#result-course-name").html(`<b>${courseData.nome}</b>`)
+                $("#result-course-details").html(`${courseData.descricao}`)
+                $("#result-course-class").html(`<i class="fas fa-book fa-lg text-muted" aria-hidden="true"></i> ${courseData.aulas} aulas`)
+                $("#result-course-duration").html(`<i class="fas fa-clock fa-lg text-muted" aria-hidden="true"></i> ${courseData.duracao}`)
+                $("#result-course-certificate").html(`<i class="fas fa-certificate fa-lg text-muted" aria-hidden="true"></i> ${certificado}`)
+                $("#result-course-price").html(`<b>R$ ${Number(courseData.preco).toFixed(2)}</b>`)
+            })
+
             $('#steps li:last-child a').removeClass('disabled')
             $('#steps li:last-child a').tab('show')
             $('#steps li:nth-child(2) a').removeClass('active')
             $('#steps li:last-child a').addClass('active')
     
-            if ($(this)[0].id === 'form-credit-card') {
-                console.log('Cartão de Crédito!')
-            } else {
-                console.log('Boleto!')
-            }
+            
         }
     })
 
@@ -24,7 +78,7 @@ $(document).ready(function() {
             if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
                 return false;
             }
-        });
+        })
     }
 
     OnlyNumberInput('#cpf-customer-input')

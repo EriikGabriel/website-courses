@@ -113,6 +113,7 @@ return array(
     'Symfony\\Polyfill\\Php72\\Php72' => $vendorDir . '/symfony/polyfill-php72/Php72.php',
     'src\\model\\Conexao' => $baseDir . '/src/database/conexao.php',
     'src\\model\\Course' => $baseDir . '/src/courses/model/course.php',
+    'src\\model\\CourseDAO' => $baseDir . '/src/courses/model/courseDAO.php',
     'src\\model\\User' => $baseDir . '/src/users/model/user.php',
     'src\\model\\UserDAO' => $baseDir . '/src/users/model/userDAO.php',
 );

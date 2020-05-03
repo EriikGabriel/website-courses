@@ -183,6 +183,7 @@ class ComposerStaticInitfc05d2e76feb38e827dc00a923521dd2
         'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
         'src\\model\\Conexao' => __DIR__ . '/../..' . '/src/database/conexao.php',
         'src\\model\\Course' => __DIR__ . '/../..' . '/src/courses/model/course.php',
+        'src\\model\\CourseDAO' => __DIR__ . '/../..' . '/src/courses/model/courseDAO.php',
         'src\\model\\User' => __DIR__ . '/../..' . '/src/users/model/user.php',
         'src\\model\\UserDAO' => __DIR__ . '/../..' . '/src/users/model/userDAO.php',
     );

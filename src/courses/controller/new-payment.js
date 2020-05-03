@@ -48,7 +48,6 @@ $(document).ready(function() {
                     }
                 }).done(function(res) {
                     const userData = JSON.parse(res)
-                    console.log(userData)
 
                     $("#input-credit-number").val(userData.numero_cartao)
                     $("#input-cvv").val(userData.cvv)
@@ -59,6 +58,8 @@ $(document).ready(function() {
                     $("#email-customer-input").val(userData.email)
                     $("#tel-customer-input").val(userData.telefone)
                     $("#cpf-customer-input").val(userData.cpf)
+
+                    $(".payment-forms button").attr("name", course_name)
                 })
             } else {
                 $("#btn-login").attr("name", course_name)
