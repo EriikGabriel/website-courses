@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     $(".payment-forms").submit(function (e) {
         e.preventDefault()
-        console.log()
+
         if($(this)[0].id === 'form-payment-slip' || ValidationCredit() !== false 
         && $(this)[0].id === 'form-credit-card') {
             $("#result-costumer-name").html(`<b>${$('#name-customer-input').val()}</b>`)
@@ -30,7 +30,6 @@ $(document).ready(function() {
                     action: "Search Course Data"
                 }
             }).done(function(res){
-                console.log(JSON.parse(res))
                 const courseData = JSON.parse(res)
                 
                 switch (courseData.id) {
@@ -62,16 +61,45 @@ $(document).ready(function() {
                 $("#result-course-duration").html(`<i class="fas fa-clock fa-lg text-muted" aria-hidden="true"></i> ${courseData.duracao}`)
                 $("#result-course-certificate").html(`<i class="fas fa-certificate fa-lg text-muted" aria-hidden="true"></i> ${certificado}`)
                 $("#result-course-price").html(`<b>R$ ${Number(courseData.preco).toFixed(2)}</b>`)
+
+                $("#btn-finish-purchase").click(function() {
+                    if($("#result-payment-method b").html() == "Cartão de Crédito") {
+                        $.post({
+                            url: "src/courses/model/course-payment.php",
+                            data: {
+                                method: "credit_card",
+                                card_number: $('#input-credit-number').val(),
+                                cvv: $('#input-cvv').val(),
+                                titular: $('#input-titular').val(),
+                                expire_date: $('#input-expire-date').val(),
+                                course_name: courseData.nome,
+                                course_price: courseData.preco
+                            }
+                        }).done(function(res){
+                            console.log(JSON.parse(res))
+
+                            $('#purchaseModal').modal('hide')
+
+                            iziToast.warning({
+                                title: 'Compra',
+                                message: 'A compra foi realizada',
+                                position: 'topLeft'
+                            });
+                        })
+                    } else {
+            
+                    }
+                })
             })
 
             $('#steps li:last-child a').removeClass('disabled')
             $('#steps li:last-child a').tab('show')
             $('#steps li:nth-child(2) a').removeClass('active')
             $('#steps li:last-child a').addClass('active')
-    
-            
         }
     })
+
+    
 
     function OnlyNumberInput(input_element) {
         $(input_element).keypress(function (e) {
