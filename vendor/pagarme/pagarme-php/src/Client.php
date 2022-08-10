@@ -2,6 +2,7 @@
 
 namespace PagarMe;
 
+use PagarMe\PagarMe;
 use PagarMe\RequestHandler;
 use PagarMe\ResponseHandler;
 use PagarMe\Endpoints\BankAccounts;
@@ -20,6 +21,7 @@ use PagarMe\Endpoints\Balances;
 use PagarMe\Endpoints\Payables;
 use PagarMe\Endpoints\BalanceOperations;
 use PagarMe\Endpoints\Chargebacks;
+use PagarMe\Endpoints\Search;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException as ClientException;
 use PagarMe\Exceptions\InvalidJsonException;
@@ -127,6 +129,11 @@ class Client
     private $chargebacks;
 
     /**
+     * @var \PagarMe\Endpoints\Search
+     */
+    private $search;
+
+    /**
      * @param string $apiKey
      * @param array|null $extras
      */
@@ -144,7 +151,8 @@ class Client
             $options['headers']['User-Agent'] :
             '';
 
-        $options['headers'] = $this->addUserAgentHeaders($userAgent);
+        $options['headers']['User-Agent'] = $this->addUserAgentHeaders($userAgent);
+        $options['headers']['X-PagarMe-User-Agent'] = $this->addUserAgentHeaders($userAgent);
 
         $this->http = new HttpClient($options);
 
@@ -164,6 +172,7 @@ class Client
         $this->payables = new Payables($this);
         $this->balanceOperations = new BalanceOperations($this);
         $this->chargebacks = new Chargebacks($this);
+        $this->search = new Search($this);
     }
 
     /**
@@ -216,8 +225,9 @@ class Client
     private function buildUserAgent($customUserAgent = '')
     {
         return trim(sprintf(
-            '%s PHP/%s',
+            '%s pagarme-php/%s php/%s',
             $customUserAgent,
+            PagarMe::VERSION,
             phpversion()
         ));
     }
@@ -226,16 +236,11 @@ class Client
      * Append new keys (the default and pagarme) related to user-agent
      *
      * @param string $customUserAgent
-     * @return array
+     * @return string
      */
     private function addUserAgentHeaders($customUserAgent = '')
     {
-        return [
-            'User-Agent' => $this->buildUserAgent($customUserAgent),
-            self::PAGARME_USER_AGENT_HEADER => $this->buildUserAgent(
-                $customUserAgent
-            )
-        ];
+        return $this->buildUserAgent($customUserAgent);
     }
 
     /**
@@ -364,5 +369,13 @@ class Client
     public function chargebacks()
     {
         return $this->chargebacks;
+    }
+
+    /**
+     * @return \PagarMe\Endpoints\Search
+     */
+    public function search()
+    {
+        return $this->search;
     }
 }
